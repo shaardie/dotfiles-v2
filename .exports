@@ -1,0 +1,10 @@
+# General
+export NAME="Sven Haardiek"
+export EMAIL="sven@haardiek.de"
+export EDITOR="nvim --clean"
+export VISUAL="nvim --clean"
+export BROWSER="firefox"
+export WWUKUBE_LOGIN_ENABLE_DEV=yes
+export VAULT_ADDR=https://vault.uni-muenster.de
+
+export PATH=~/go/bin:$PATH:~/bin:${KREW_ROOT:-$HOME/.krew}/bin:~/.local/bin
