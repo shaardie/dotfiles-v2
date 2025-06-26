@@ -1,0 +1,17 @@
+[username]
+show_always = true
+
+[hostname]
+ssh_only = false
+
+[directory]
+truncate_to_repo = false
+
+[python]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[time]
+disabled = false
