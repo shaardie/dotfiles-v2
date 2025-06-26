@@ -1,0 +1,10 @@
+[general]
+import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+[window]
+title = "Terminal"
+
+[scrolling]
+history = 100000
+
+[font]
+size = 12
