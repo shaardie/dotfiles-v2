@@ -1,9 +1,6 @@
 # i3 config file (v4)
 set $mod Mod4
 
-# Font for window titles.
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -14,7 +11,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -theme gruvbox-dark -show drun
 
 # change focus:
 bindsym $mod+Left focus left
@@ -105,28 +102,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+set $lightgray #bdae93
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    position bottom
+    status_command i3status
+    colors {
+        # bar background color
+        background $bg
+        # text color used for blocks that do not have a color specified.
+        statusline $lightgray
+        # workspaces section            
+        #                    border  backgr. text
+        focused_workspace    $lightgray $lightgray $bg
+        inactive_workspace   $darkgray $darkgray $lightgray
+        active_workspace     $darkgray $darkgray $lightgray
+        urgent_workspace     $red $red $bg
+    }
 }
 
-# Screenshot
-bindsym Print exec "scrot ~/Downloads/Screenshot%Y-%m-%d%H:%M:%S.png"
+# class                 border|backgr|text|indicator|child_border
+client.focused          $lightgray $lightgray $bg $purple $darkgray
+client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
+client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
+client.urgent           $red $red $white $red $red
 
 # Screensaver
 bindsym $mod+F12 exec --no-startup-id i3lock --color=000000 --dpms
 
-workspace 1 output primary
-workspace 2 output primary
-workspace 3 output primary
-workspace 4 output primary
-workspace 5 output primary
-workspace 6 output HDMI-1
-workspace 7 output HDMI-1
-workspace 8 output HDMI-1
-workspace 9 output HDMI-1
-workspace 10 output HDMI-1
-
 # Execute script on startup
-exec --no-startup-id ~/.i3/i3setup.sh
+exec --no-startup-id nm-applet
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/archlinux/archwave.png
