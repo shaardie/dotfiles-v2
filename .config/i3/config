@@ -1,6 +1,9 @@
 # i3 config file (v4)
 set $mod Mod4
 
+# font
+font pango:JetBrainsMono Nerd Font 10
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -82,6 +85,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Screensaver
+bindsym $mod+F12 exec --no-startup-id i3lock --color=000000 --dpms
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -137,9 +143,6 @@ client.focused          $lightgray $lightgray $bg $purple $darkgray
 client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
 client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
 client.urgent           $red $red $white $red $red
-
-# Screensaver
-bindsym $mod+F12 exec --no-startup-id i3lock --color=000000 --dpms
 
 # Execute script on startup
 exec --no-startup-id nm-applet
