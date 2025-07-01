@@ -21,3 +21,6 @@ style = "Bold"
 [font.italic]
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
+
+[env]
+TERM = "xterm-256color"
