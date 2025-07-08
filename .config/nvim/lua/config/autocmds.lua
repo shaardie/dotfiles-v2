@@ -23,3 +23,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.conceallevel = 0
   end,
 })
+
+-- handle all files in templates/* as helm files and disable diagnostic,
+-- because it's crap
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*/templates/*.yaml" },
+  callback = function()
+    vim.bo.filetype = "helm"
+    vim.diagnostic.enable(false)
+  end,
+})
