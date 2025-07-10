@@ -33,6 +33,7 @@ alias grep='grep --color'
 alias vi='vim'
 alias prirefox='firefox --private'
 alias emissionsapi-pass='PASSWORD_STORE_DIR=~/passstore-emissions-api pass'
+alias ip='ip -c'
 
 
 # ------
