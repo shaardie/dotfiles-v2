@@ -31,8 +31,6 @@ alias ll='ls -h -l --color=auto'
 alias la='ls -a --color=auto'
 alias grep='grep --color'
 alias vi='vim'
-alias prirefox='firefox --private'
-alias emissionsapi-pass='PASSWORD_STORE_DIR=~/passstore-emissions-api pass'
 alias ip='ip -c'
 
 
@@ -84,7 +82,6 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   zle -N zle-line-init
   zle -N zle-line-finish
 fi
-bindkey -v                                            # Use vi key bindings
 bindkey '\ew' kill-region                             # [Esc-w] - Kill from the cursor to the mark
 bindkey '^r' history-incremental-search-backward      # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
 if [[ "${terminfo[kpp]}" != "" ]]; then
