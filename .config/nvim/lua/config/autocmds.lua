@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "md" },
   callback = function()
     vim.opt_local.conceallevel = 0
+    vim.diagnostic.enable(false)
   end,
 })
 
