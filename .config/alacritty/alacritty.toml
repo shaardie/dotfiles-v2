@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+import = ["~/.config/alacritty/themes/themes/tokyo_night.toml"]
 
 [window]
 title = "Terminal"
