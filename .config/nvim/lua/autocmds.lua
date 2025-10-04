@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- handle all files in templates/* as helm files and disable diagnostic,
+-- because it's crap
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { '*/templates/*.yaml' },
+  callback = function()
+    vim.bo.filetype = 'helm'
+    vim.diagnostic.enable(false)
+  end,
+})
