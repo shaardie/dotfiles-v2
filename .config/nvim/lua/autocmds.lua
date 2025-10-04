@@ -12,6 +12,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Disable autoformatting for specific filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'yaml' }, -- Replace with your language(s)
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 -- handle all files in templates/* as helm files and disable diagnostic,
 -- because it's crap
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
