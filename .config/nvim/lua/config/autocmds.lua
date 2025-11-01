@@ -30,3 +30,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.diagnostic.enable(false)
   end,
 })
+
+-- do not conceal markdown.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- Conceal ausschalten
+    vim.opt_local.conceallevel = 0
+    vim.opt_local.concealcursor = ""
+  end,
+})
