@@ -139,7 +139,7 @@ bar {
         separator  $bright_black
 
         focused_workspace  $blue   $blue   $bg
-        active_workspace   $bright_black $bright_black $fg
+        active_workspace   $bright_black $bright_black $bg
         inactive_workspace $black  $black  $fg
         urgent_workspace   $red    $red    $fg
     }
