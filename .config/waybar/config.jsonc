@@ -1,20 +1,62 @@
 {
   "layer": "top",
+  "position": "top",
   "modules-left": [
     "sway/workspaces",
     "sway/mode"
   ],
   "modules-center": [
-    "sway/window"
-  ],
-  "modules-right": [
-    "battery",
     "clock"
   ],
-  "sway/window": {
-    "max-length": 50
+  "modules-right": [
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "network",
+    "battery",
+    "tray"
+  ],
+  "clock": {
+    "format": "{:%R} ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "left",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "cpu": {
+    "format": "{usage}%  "
+  },
+  "memory": {
+    "format": "{percentage}% "
+  },
+  "pulseaudio": {
+    "format": "{volume}  ",
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "{signalStrength}% {ipaddr}/{cidr}  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "NO NET"
   },
   "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
     "format": "{capacity}% {icon}",
     "format-icons": [
       "",
@@ -22,9 +64,7 @@
       "",
       "",
       ""
-    ]
-  },
-  "clock": {
-    "format-alt": "{:%a, %d. %b  %H:%M}"
+    ],
+    "max-length": 25
   }
 }
