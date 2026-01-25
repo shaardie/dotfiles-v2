@@ -1,3 +1,5 @@
+include /etc/sway/config.d/*
+
 # sway config file
 set $mod Mod4
 
@@ -90,8 +92,8 @@ bindsym $mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $mod+Shift+r restart
 
-# exit sway (logs you out of your X session)
-bindsym $mod+Shift+e exec "sway-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'sway-msg exit'"
+# exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Screensaver
 bindsym $mod+F12 exec --no-startup-id swaylock --color=000000
@@ -161,6 +163,7 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86Search exec bemenu-run
 
 # output
-output 'LG Electronics LG ULTRAGEAR 503BOEA02156' pos 0 0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
+output '*' bg /usr/share/backgrounds/archlinux/archbtw.png fill
+output 'LG Electronics LG ULTRAGEAR 503BOEA02156' pos 0 0    bg /usr/share/backgrounds/archlinux/archbtw.png fill
 output 'LG Electronics LG ULTRAGEAR 503BOVU02263' pos 2560 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
 
