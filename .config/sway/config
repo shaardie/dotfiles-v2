@@ -164,6 +164,5 @@ bindsym XF86Search exec bemenu-run
 
 # output
 output '*' bg /usr/share/backgrounds/archlinux/archbtw.png fill
-output 'LG Electronics LG ULTRAGEAR 503BOEA02156' pos 0 0    bg /usr/share/backgrounds/archlinux/archbtw.png fill
-output 'LG Electronics LG ULTRAGEAR 503BOVU02263' pos 2560 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
-
+output 'LG Electronics LG ULTRAGEAR 503BOEA02156' mode 2560x1440@59.951Hz pos 0    0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
+output 'LG Electronics LG ULTRAGEAR 503BOVU02263' mode 2560x1440@59.951Hz pos 2560 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
