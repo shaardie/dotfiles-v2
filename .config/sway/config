@@ -169,4 +169,4 @@ output 'LG Electronics LG ULTRAGEAR 503BOVU02263' mode 2560x1440@59.951Hz pos 25
 
 # start as floating windows
 for_window [class="Pinentry-gtk"] floating enable
-
+for_window [app_id="nm-openconnect-auth-dialog"] floating enable
