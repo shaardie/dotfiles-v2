@@ -37,8 +37,7 @@
     "max-length": 25,
   },
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon} {volume}%",
+    "format": "{volume}% {icon}",
     "format-muted": "",
     "format-icons": {
       "default": ["", "", " "],
