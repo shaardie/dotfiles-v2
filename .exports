@@ -7,4 +7,4 @@ export BROWSER="firefox"
 export WWUKUBE_LOGIN_ENABLE_DEV=yes
 export VAULT_ADDR=https://vault.uni-muenster.de
 
-export PATH=~/go/bin:$PATH:~/bin:${KREW_ROOT:-$HOME/.krew}/bin:~/.local/bin
+export PATH=~/go/bin:~/bin:$PATH:${KREW_ROOT:-$HOME/.krew}/bin:~/.local/bin
