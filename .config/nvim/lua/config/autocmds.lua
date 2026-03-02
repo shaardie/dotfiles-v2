@@ -40,3 +40,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.concealcursor = ""
   end,
 })
+
+-- do not conceal tex and also do not wrap
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tex",
+  callback = function()
+    -- disable conceal
+    vim.opt_local.conceallevel = 0
+    vim.opt_local.concealcursor = ""
+    vim.wo.wrap = true
+  end,
+})
