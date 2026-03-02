@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/themes/tokyo_night.toml"]
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [window]
 title = "Terminal"
