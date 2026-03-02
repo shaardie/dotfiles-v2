@@ -118,27 +118,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# catppuccin color sheme https://github.com/catppuccin/i3
+include catppuccin-mocha
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
-# ============================
-# Tokyo Night Color Scheme
-# ============================
-set $bg              #1a1b26
-set $fg              #c0caf5
-set $black           #15161e
-set $red             #f7768e
-set $green           #9ece6a
-set $yellow          #e0af68
-set $blue            #7aa2f7
-set $magenta         #bb9af7
-set $cyan            #7dcfff
-set $white           #a9b1d6
-
-# class                 border      background  text        indicator   child_border
-client.focused          $blue       $blue       $bg         $blue       $blue
-client.focused_inactive $black      $black      $fg         $black      $black
-client.unfocused        $black      $black      $fg         $black      $black
-client.urgent           $red        $red        $fg         $red        $red
-client.placeholder      $black      $black      $fg         $black      $black
 
 # waybar
 bar {
@@ -163,7 +152,7 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86Search exec bemenu-run
 
 # output
-output '*' bg /usr/share/backgrounds/archlinux/archbtw.png fill
+output '*'                                                                           bg /usr/share/backgrounds/archlinux/archbtw.png fill
 output 'LG Electronics LG ULTRAGEAR 503BOEA02156' mode 2560x1440@59.951Hz pos 0    0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
 output 'LG Electronics LG ULTRAGEAR 503BOVU02263' mode 2560x1440@59.951Hz pos 2560 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
 output 'Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014423'           pos 0    0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
