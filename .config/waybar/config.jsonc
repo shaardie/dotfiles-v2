@@ -1,23 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": [
-    "sway/workspaces",
-    "sway/mode"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "network",
-    "battery",
-    "tray"
-  ],
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-right": ["pulseaudio", "network", "battery", "clock", "tray"],
   "tray": {
-    "spacing": 10
+    "icon-size": 21,
+    "spacing": 10,
   },
   "clock": {
     "format": "{:%R}  ",
@@ -31,43 +19,35 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
     "actions": {
-      "on-click-right": "mode"
-    }
-  },
-  "cpu": {
-    "format": "{usage}%  "
-  },
-  "memory": {
-    "format": "{percentage}% "
-  },
-  "pulseaudio": {
-    "format": "{volume}  ",
-    "scroll-step": 1,
-    "on-click": "pavucontrol"
-  },
-  "network": {
-    "format-wifi": "{signalStrength}% {ipaddr}/{cidr}  ",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "NO NET"
+      "on-click-right": "mode",
+    },
   },
   "battery": {
     "interval": 60,
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "max-length": 25
-  }
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+  "network": {
+    "format-wifi": "{signalStrength}% {ipaddr}/{cidr}  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "NO NET",
+  },
 }
