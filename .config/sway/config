@@ -96,7 +96,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Screensaver
-bindsym $mod+F12 exec --no-startup-id swaylock --color=000000
+bindsym $mod+F12 exec --no-startup-id swaylock --image /usr/share/backgrounds/archlinux/gritty.png
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
