@@ -127,3 +127,4 @@ bindkey '\C-x\C-e' edit-command-line
 bindkey "^[m" copy-prev-shell-word
 
 eval "$(starship init zsh)"
+source <(fzf --zsh)
