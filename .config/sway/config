@@ -161,3 +161,4 @@ output 'Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014425'           pos 19
 # start as floating windows
 for_window [class="Pinentry-gtk"] floating enable
 for_window [app_id="nm-openconnect-auth-dialog"] floating enable
+for_window [class="zoom" title="annotate_toolbar"] move to scratchpad
