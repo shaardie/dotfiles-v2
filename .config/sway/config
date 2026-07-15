@@ -136,6 +136,7 @@ bar {
 
 # Execute script on startup
 exec --no-startup-id nm-applet
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # special keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
