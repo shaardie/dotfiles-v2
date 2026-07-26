@@ -1,0 +1,68 @@
+# === Core & Session ===
+sway
+swaybg
+swayidle
+swaylock
+xdg-desktop-portal
+xdg-desktop-portal-wlr
+xdg-desktop-portal-gtk
+polkit-gnome
+gnome-keyring
+libsecret
+
+# === Statusleiste, Launcher, Notifications ===
+waybar
+wofi
+mako
+libnotify
+
+# === Screenshots, Recording, Clipboard ===
+grim
+slurp
+wf-recorder
+wl-clipboard
+cliphist
+
+# === Hardware-Steuerung ===
+brightnessctl
+pavucontrol
+pamixer
+playerctl
+networkmanager
+network-manager-applet
+blueman
+bluez
+bluez-utils
+udiskie
+
+# === Audio-Stack (PipeWire) ===
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+
+# === Dateimanager & Basis-Apps ===
+nautilus
+file-roller
+gvfs
+gvfs-mtp
+imv
+zathura
+zathura-pdf-mupdf
+foot
+
+# === Theming (GTK + Qt-Konsistenz) ===
+qt5ct
+qt6ct
+kvantum
+nwg-look
+adwaita-qt5
+adwaita-qt6
+papirus-icon-theme
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji
+
+# === Nützliche CLI-Tools ===
+jq
