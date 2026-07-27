@@ -1,5 +1,6 @@
 # === Core & Session ===
 sway
+sway-contrib
 swaybg
 swayidle
 swaylock
@@ -12,8 +13,8 @@ libsecret
 
 # === Statusleiste, Launcher, Notifications ===
 waybar
-wofi
-mako
+rofi
+swaync
 libnotify
 
 # === Screenshots, Recording, Clipboard ===
@@ -22,6 +23,7 @@ slurp
 wf-recorder
 wl-clipboard
 cliphist
+jq
 
 # === Hardware-Steuerung ===
 brightnessctl
@@ -43,26 +45,19 @@ pipewire-jack
 wireplumber
 
 # === Dateimanager & Basis-Apps ===
-nautilus
-file-roller
-gvfs
-gvfs-mtp
-imv
-zathura
-zathura-pdf-mupdf
-foot
+#nautilus
+#file-roller
+#gvfs
+#gvfs-mtp
+#imv
+#zathura
+#zathura-pdf-mupdf
 
-# === Theming (GTK + Qt-Konsistenz) ===
-qt5ct
-qt6ct
-kvantum
-nwg-look
-adwaita-qt5
-adwaita-qt6
-papirus-icon-theme
-ttf-jetbrains-mono-nerd
-noto-fonts
-noto-fonts-emoji
-
-# === Nützliche CLI-Tools ===
-jq
+# === Theming ===
+#qt5ct
+#qt6ct
+#nwg-look
+#papirus-icon-theme
+#ttf-jetbrains-mono-nerd
+#noto-fonts
+#noto-fonts-emoji
