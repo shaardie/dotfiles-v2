@@ -8,6 +8,8 @@ filter_list() {
   sed 's/#.*//; s/[[:space:]]*$//' "$1" | grep -v '^$'
 }
 
+sudo pacman -Suy
+
 sudo pacman -S --needed $(filter_list ~/.config/pkglist/packages.txt)
 
 # install yay
@@ -75,7 +77,6 @@ systemctl --user enable --now ssh-agent.service
 sudo usermod -aG docker "$USER"
 sudo usermod -aG scanner "$USER"
 sudo usermod -aG wheel "$USER"
-sudo usermod -aG sudo "$USER"
 
 # Shell
 sudo chsh -s /bin/zsh "$USER"

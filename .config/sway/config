@@ -1,5 +1,3 @@
-include /etc/sway/config.d/*
-
 # sway config file
 set $mod Mod4
 
@@ -143,7 +141,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Output management (mode/position kommt aus kanshi)
-exec_always pkill kanshi && kanshi
+exec_always pkill kanshi; kanshi
 
 # Bars / Notifications / OSD
 exec swaync
