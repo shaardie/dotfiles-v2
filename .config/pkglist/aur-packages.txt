@@ -1,0 +1,8 @@
+all-repository-fonts
+zoom
+clusterctl-bin              # Cluster API CLI
+python-osc-placement        # OpenStack Placement
+python-ironicclient         # OpenStack Ironic (bare metal)
+google-chrome               # Google Chrome
+brscan5                     # Brother scanner driver
+dropbox                     # Dropbox sync client

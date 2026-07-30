@@ -1,63 +1,382 @@
-# === Core & Session ===
-sway
-sway-contrib
-swaybg
-swayidle
-swaylock
-xdg-desktop-portal
-xdg-desktop-portal-wlr
-xdg-desktop-portal-gtk
-polkit-gnome
-gnome-keyring
-libsecret
+# ##############################################################################
+# BASE SYSTEM
+# ##############################################################################
+base                        # Minimal base system
+base-devel                  # Build tools (makepkg, gcc - needed for AUR)
+linux                       # Kernel
+linux-firmware              # Hardware firmware blobs
+intel-ucode                 # CPU microcode updates (Intel)
+efibootmgr                  # Manage UEFI boot entries
+fwupd                       # Firmware update daemon
+btrfs-progs                 # Btrfs filesystem tools
+zram-generator              # Compressed RAM swap
+reflector                   # Rank/refresh pacman mirrors
+pacman-contrib              # Extra pacman tools (paccache, checkupdates)
+pkgfile                     # Find which package provides a file
+man-db                      # Man page reader
 
-# === Statusleiste, Launcher, Notifications ===
-waybar
-rofi
-swaync
-libnotify
 
-# === Screenshots, Recording, Clipboard ===
-grim
-slurp
-wf-recorder
-wl-clipboard
-cliphist
-jq
+# ##############################################################################
+# GPU DRIVERS
+# ##############################################################################
+intel-media-driver          # Intel VAAPI (newer GPUs)
+libva-intel-driver          # Intel VAAPI (older GPUs)
+vulkan-intel                # Vulkan driver (Intel)
+vulkan-radeon               # Vulkan driver (AMD)
+xf86-video-amdgpu           # X11 driver AMD (only under Xorg)
+xf86-video-ati              # X11 driver older ATI (only under Xorg)
+xf86-video-nouveau          # X11 driver NVIDIA open (only under Xorg)
 
-# === Hardware-Steuerung ===
-brightnessctl
-pavucontrol
-pamixer
-playerctl
-networkmanager
-network-manager-applet
-blueman
-bluez
-bluez-utils
-udiskie
 
-# === Audio-Stack (PipeWire) ===
-pipewire
-pipewire-alsa
-pipewire-pulse
-pipewire-jack
-wireplumber
+# ##############################################################################
+# WAYLAND / SWAY DESKTOP ENVIRONMENT
+# ##############################################################################
 
-# === Dateimanager & Basis-Apps ===
-#nautilus
-#file-roller
-#gvfs
-#gvfs-mtp
-#imv
-#zathura
-#zathura-pdf-mupdf
+# --- Core Compositor & Session ---
+sway                        # Wayland tiling compositor (i3-compatible)
+sway-contrib                # Extra helper scripts (grimshot, etc.)
 
-# === Theming ===
-#qt5ct
-#qt6ct
-#nwg-look
-#papirus-icon-theme
-#ttf-jetbrains-mono-nerd
-#noto-fonts
-#noto-fonts-emoji
+# --- Bar / Launcher / Notifications ---
+waybar                      # Status bar
+rofi                        # App launcher / dmenu replacement / power menu
+swaync                      # Notification daemon with control center
+
+# --- Wallpaper / Lock / Idle ---
+swaybg                      # Set desktop wallpaper
+swaylock                    # Screen locker
+swayidle                    # Idle management (lock/suspend on inactivity)
+
+# --- OSD / Output Management ---
+swayosd                     # OSD for volume/brightness/caps-lock feedback
+kanshi                      # Auto-switch output profiles (dock/undock)
+wlr-randr                   # Query/configure outputs on Wayland (CLI)
+
+# --- Night Light ---
+wlsunset                    # Blue-light filter based on time/location
+
+# --- Clipboard ---
+wl-clipboard                # Basic copy/paste (wl-copy / wl-paste)
+cliphist                    # Clipboard history manager (uses rofi as picker)
+
+# --- Screenshots / Screen Sharing ---
+grim                        # Take screenshots on Wayland
+slurp                       # Select a screen region (used with grim)
+wl-mirror                   # Mirror an output (e.g. for presentations)
+
+# --- Input Simulation ---
+wtype                       # Simulate keyboard input (xdotool type equivalent)
+ydotool                     # Global input automation (needs ydotool.service)
+
+# --- Authentication / Secrets ---
+polkit-gnome                # PolicyKit authentication agent (GUI prompts)
+gnome-keyring               # Secret storage (passwords, SSH/GPG keys)
+seahorse                    # GUI for managing keyring secrets
+
+# --- XDG Desktop Portals ---
+xdg-desktop-portal-wlr      # Screencast/screenshot portal for wlroots
+xdg-desktop-portal-gtk      # File chooser / settings portal (GTK)
+xdg-user-dirs-gtk           # Create standard user dirs (Downloads, etc.)
+xdg-utils                   # xdg-open and friends
+
+# --- Theming & Appearance ---
+gnome-tweaks                # Adjust GTK theme, fonts, cursor
+dconf-editor                # Low-level GNOME settings editor
+qt6ct                       # Qt6 appearance configuration
+qt6-5compat                 # Qt5 compatibility libs (dependency for some apps)
+
+
+# ##############################################################################
+# LOGIN MANAGER
+# ##############################################################################
+gdm                         # Display manager / login screen
+
+
+# ##############################################################################
+# AUDIO (PipeWire stack)
+# ##############################################################################
+pipewire                    # Audio/video server
+pipewire-pulse              # PulseAudio replacement
+pipewire-alsa               # ALSA compatibility
+pipewire-jack               # JACK compatibility
+wireplumber                 # PipeWire session/policy manager
+pavucontrol                 # Volume control GUI
+helvum                      # PipeWire patchbay (routing GUI)
+playerctl                   # MPRIS media control (play/pause keys)
+
+
+# ##############################################################################
+# BRIGHTNESS / HARDWARE
+# ##############################################################################
+brightnessctl               # Control screen/keyboard backlight
+usbutils                    # lsusb and friends
+evtest                      # Inspect input device events
+smartmontools               # Disk health (SMART) monitoring
+
+
+# ##############################################################################
+# NETWORKING
+# ##############################################################################
+networkmanager              # Network connection manager
+network-manager-applet      # Tray applet (nm-applet)
+networkmanager-openconnect  # VPN plugin (OpenConnect)
+networkmanager-openvpn      # VPN plugin (OpenVPN)
+openconnect                 # Cisco AnyConnect-compatible VPN client
+openvpn                     # OpenVPN client
+wireguard-tools             # WireGuard VPN
+iwd                         # Wireless daemon
+wireless_tools              # Legacy wireless tools (iwconfig)
+nss-mdns                    # .local hostname resolution (mDNS)
+
+# --- Network diagnostics/tools ---
+bind                        # dig, nslookup
+whois                       # WHOIS lookups
+traceroute                  # Trace network paths
+inetutils                   # ping, telnet, etc.
+ndisc6                      # IPv6 neighbor/router discovery
+openbsd-netcat              # netcat
+nmap                        # Port scanner
+tcpdump                     # Packet capture (CLI)
+wireshark-qt                # Packet analyzer (GUI)
+iperf3                      # Network throughput testing
+iptraf-ng                   # Real-time network stats
+hping                       # Custom TCP/IP packet crafting
+siege                       # HTTP load testing
+bmon                        # Bandwidth monitor
+nload                       # Network load monitor
+ethtool                     # NIC settings
+ipcalc                      # Subnet calculator
+remmina                     # Remote desktop client (RDP/VNC/SPICE)
+
+
+# ##############################################################################
+# TERMINALS & SHELL
+# ##############################################################################
+zsh                         # Shell
+starship                    # Cross-shell prompt
+alacritty                   # GPU-accelerated terminal
+tmux                        # Terminal multiplexer
+screen                      # Classic terminal multiplexer
+
+
+# ##############################################################################
+# CLI UTILITIES
+# ##############################################################################
+fzf                         # Fuzzy finder
+fd                          # Fast find replacement
+ripgrep                     # Fast grep replacement
+jq                          # JSON processor
+yq                          # YAML/XML processor
+wget                        # HTTP downloader
+rsync                       # File sync/backup
+less                        # Pager
+parallel                    # Run jobs in parallel
+colordiff                   # Colorized diff
+wdiff                       # Word-level diff
+dos2unix                    # Line-ending conversion
+pdfgrep                     # grep inside PDFs
+7zip                        # 7z archive support
+lsof                        # List open files
+iotop-c                     # I/O usage monitor
+htop                        # Process viewer
+btop                        # Fancy resource monitor
+sysstat                     # System performance tools (sar, iostat)
+task                        # Taskwarrior (todo management)
+taskwarrior-tui             # TUI for Taskwarrior
+
+
+# ##############################################################################
+# EDITORS & IDEs
+# ##############################################################################
+neovim                      # Modal editor
+vim                         # Classic vi
+code                        # Visual Studio Code (OSS)
+
+
+# ##############################################################################
+# VERSION CONTROL
+# ##############################################################################
+git                         # Version control
+git-crypt                   # Transparent file encryption in git
+git-filter-repo             # Rewrite git history
+git-sizer                   # Analyze git repo size
+lazygit                     # Git TUI
+glab                        # GitLab CLI
+gitlab-runner               # GitLab CI runner
+yadm                        # Dotfiles manager
+
+
+# ##############################################################################
+# DEVELOPMENT - LANGUAGES & TOOLING
+# ##############################################################################
+gdb                         # Debugger
+
+# --- Rust ---
+rustup                      # Rust toolchain manager
+rust-analyzer               # Rust LSP
+cargo-show-asm              # Inspect generated assembly
+
+# --- Python ---
+pyenv                       # Python version manager
+ruff                        # Python linter/formatter
+python-numpy                # Numerical computing
+
+# --- JS/TS ---
+npm                         # Node package manager
+yarn                        # Alternative Node package manager
+typescript-language-server  # TS LSP
+vue-language-server         # Vue LSP
+
+# --- Other ---
+luarocks                    # Lua package manager
+shellcheck                  # Shell script linter
+sqlfluff                    # SQL linter/formatter
+
+
+# ##############################################################################
+# CONTAINERS / KUBERNETES / DEVOPS
+# ##############################################################################
+docker                      # Container runtime
+docker-buildx               # Extended build features
+docker-compose              # Multi-container orchestration
+ansible                     # Configuration management
+packer                      # Machine image builder
+kubectl                     # Kubernetes CLI
+helm                        # Kubernetes package manager
+kustomize                   # Kubernetes manifest templating
+k9s                         # Kubernetes TUI
+minikube                    # Local Kubernetes cluster
+argocd                      # GitOps CD for Kubernetes
+istio                       # Service mesh CLI
+kubeconform                 # Validate Kubernetes manifests
+mimir                       # Grafana Mimir (metrics)
+
+
+# ##############################################################################
+# SECRETS / SECURITY / AUTH
+# ##############################################################################
+keepassxc                   # Password manager (GUI)
+pass                        # CLI password store (GPG-based)
+pwgen                       # Password generator
+vault                       # HashiCorp Vault (secrets)
+sops                        # Encrypted secrets in files
+jwt-cli                     # Work with JWT tokens
+clamav                      # Antivirus scanner
+libfido2                    # FIDO2/U2F support
+yubikey-manager             # Configure YubiKeys
+yubico-piv-tool             # YubiKey PIV smartcard tool
+
+
+# ##############################################################################
+# CLOUD / OPENSTACK / STORAGE
+# ##############################################################################
+python-openstackclient      # OpenStack CLI
+python-manilaclient         # OpenStack Manila (shared FS)
+python-octaviaclient        # OpenStack Octavia (load balancer)
+s3cmd                       # S3-compatible object storage CLI
+cloud-image-utils           # Tools for cloud images
+guestfs-tools               # Inspect/modify VM disk images
+rpi-imager                  # Write OS images to SD cards
+
+
+# ##############################################################################
+# DATABASES
+# ##############################################################################
+mariadb-clients             # MySQL/MariaDB client
+sqlitebrowser               # SQLite GUI browser
+openldap                    # LDAP client tools
+
+
+# ##############################################################################
+# WEB BROWSERS
+# ##############################################################################
+firefox                     # Firefox
+chromium                    # Chromium
+
+
+# ##############################################################################
+# COMMUNICATION (Mail / Chat)
+# ##############################################################################
+thunderbird                 # Mail client
+mutt                        # Terminal mail client
+irssi                       # Terminal IRC client
+signal-desktop              # Signal messenger
+mattermost-desktop          # Mattermost client
+
+
+# ##############################################################################
+# OFFICE / DOCUMENTS / NOTES
+# ##############################################################################
+libreoffice-still           # Office suite (stable branch)
+zettlr                      # Markdown/Zettelkasten notes
+drawio-desktop              # Diagram editor
+pandoc-cli                  # Universal document converter
+hugo                        # Static site generator
+mkdocs                      # Documentation site generator
+mermaid-cli                 # Render Mermaid diagrams
+ghex                        # Hex editor
+
+
+# ##############################################################################
+# PDF / IMAGE / MEDIA VIEWERS
+# ##############################################################################
+okular                      # PDF viewer (Qt/KDE)
+imv                         # Lightweight Wayland image viewer (NEW: replaces eog)
+mpv                         # Versatile media/video player
+gimp                        # Image editor
+
+
+# ##############################################################################
+# LATEX / TEX
+# ##############################################################################
+texmaker                    # LaTeX editor
+texlive-meta                # TeX Live meta package
+
+
+# ##############################################################################
+# PRINTING / SCANNING
+# ##############################################################################
+cups-pdf                    # Virtual PDF printer
+hplip                       # HP printer/scanner drivers
+simple-scan                 # Simple scanning GUI
+system-config-printer       # Printer configuration GUI
+ipp-usb                     # Driverless USB printing (IPP-over-USB)
+
+
+# ##############################################################################
+# FILE MANAGEMENT / MOUNTING / DISKS
+# ##############################################################################
+nautilus                    # File manager (kept for Sway; not the GNOME session)
+file-roller                 # Archive manager (GUI)
+udiskie                     # Automount removable media + tray icon
+gvfs                        # Virtual filesystem layer (trash, mounts)
+gvfs-mtp                    # MTP support (Android phones)
+gvfs-smb                    # SMB/CIFS network shares
+gvfs-nfs                    # NFS shares
+gvfs-afc                    # Apple device support
+gvfs-gphoto2                # Camera support
+gvfs-goa                    # Online Accounts integration
+nfs-utils                   # NFS client/server tools
+baobab                      # Disk usage analyzer (GUI)
+gnome-disk-utility          # Disk management GUI
+
+
+# ##############################################################################
+# CLOUD STORAGE SYNC
+# ##############################################################################
+nextcloud-client            # Nextcloud sync client
+
+
+# ##############################################################################
+# SPELL CHECKING
+# ##############################################################################
+aspell-de                   # German aspell dictionary
+hunspell-de                 # German hunspell dictionary
+
+
+# ##############################################################################
+# X11 / XWAYLAND SUPPORT
+# ##############################################################################
+xorg-xwayland               # (already listed above; core for X11 apps)
+xdotool                     # X11 automation (for XWayland windows)
+xsel                        # X11 clipboard (for XWayland apps)
+feh                         # Image viewer / X11 fallback
