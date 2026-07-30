@@ -39,6 +39,7 @@
 #clock,
 #battery,
 #network,
+#custom-notification,
 #pulseaudio {
   background-color: @surface1;
   padding: 0.5rem 1rem;
@@ -85,6 +86,12 @@
 
 #tray {
   margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
+  background-color: @surface1;
+}
+
+#custom-notification {
   margin-left: 1rem;
   border-radius: 1rem;
   background-color: @surface1;

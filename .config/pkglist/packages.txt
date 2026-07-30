@@ -9,7 +9,6 @@ intel-ucode                 # CPU microcode updates (Intel)
 efibootmgr                  # Manage UEFI boot entries
 fwupd                       # Firmware update daemon
 btrfs-progs                 # Btrfs filesystem tools
-zram-generator              # Compressed RAM swap
 reflector                   # Rank/refresh pacman mirrors
 pacman-contrib              # Extra pacman tools (paccache, checkupdates)
 pkgfile                     # Find which package provides a file
@@ -65,7 +64,6 @@ wl-mirror                   # Mirror an output (e.g. for presentations)
 
 # --- Input Simulation ---
 wtype                       # Simulate keyboard input (xdotool type equivalent)
-ydotool                     # Global input automation (needs ydotool.service)
 
 # --- Authentication / Secrets ---
 polkit-gnome                # PolicyKit authentication agent (GUI prompts)
@@ -125,7 +123,6 @@ openvpn                     # OpenVPN client
 wireguard-tools             # WireGuard VPN
 iwd                         # Wireless daemon
 wireless_tools              # Legacy wireless tools (iwconfig)
-nss-mdns                    # .local hostname resolution (mDNS)
 
 # --- Network diagnostics/tools ---
 bind                        # dig, nslookup

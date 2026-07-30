@@ -96,7 +96,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Screensaver
-bindsym $mod+F12 exec --no-startup-id swaylock --image /usr/share/backgrounds/archlinux/gritty.png
+bindsym $mod+F12 exec swaylock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -134,30 +134,62 @@ bar {
     swaybar_command waybar
 }
 
-# Execute script on startup
-exec --no-startup-id nm-applet
+### ---------------------------------------------------------------------------
+### Autostart
+### ---------------------------------------------------------------------------
+
+# Authentication / Secrets
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+# Output management (mode/position kommt aus kanshi)
+exec_always pkill kanshi && kanshi
+
+# Bars / Notifications / OSD
+exec swaync
+exec swayosd-server
+
+# Network / Storage tray
+exec nm-applet --indicator
+exec udiskie --tray
+
+# Clipboard history (Text + Bilder)
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+# Idle management + Lock
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume    'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f'
+
+# Night light (osnabrück)
+exec wlsunset -l 51.96 -L 7.63
 
 # special keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioRaiseVolume  exec swayosd-client --output-volume raise
+bindsym XF86AudioLowerVolume  exec swayosd-client --output-volume lower
+bindsym XF86AudioMute         exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioMicMute      exec swayosd-client --input-volume mute-toggle
+bindsym XF86MonBrightnessUp   exec swayosd-client --brightness raise
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+bindsym --release Caps_Lock   exec swayosd-client --caps-lock
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
-bindsym XF86Search exec bemenu-run
+bindsym XF86Search exec rofi -show drun
+
+bindsym $mod+Shift+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+
+bindsym Print       exec grimshot copy area
+bindsym Shift+Print exec grimshot save area
+bindsym $mod+Print  exec grimshot copy output
 
 # output
-output '*'                                                                           bg /usr/share/backgrounds/archlinux/gritty.png fill
-output 'LG Electronics LG ULTRAGEAR 503BOEA02156' mode 2560x1440@59.951Hz pos 0    0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
-output 'LG Electronics LG ULTRAGEAR 503BOVU02263' mode 2560x1440@59.951Hz pos 2560 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
-output 'Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014423'           pos 0    0 bg /usr/share/backgrounds/archlinux/archbtw.png fill
-output 'Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014425'           pos 1920 0 bg /usr/share/backgrounds/archlinux/gritty.png fill
+output '*' bg /usr/share/backgrounds/archlinux/gritty.png fill
 
 # start as floating windows
 for_window [class="Pinentry-gtk"] floating enable

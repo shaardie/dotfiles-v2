@@ -26,6 +26,10 @@ yay -S --needed $(filter_list ~/.config/pkglist/aur-packages.txt)
 # Services
 ###############################################################################
 
+# Better safe
+sudo systemctl daemon-reload
+systemctl --user daemon-reload
+
 # Display Manager
 sudo systemctl enable gdm.service
 
@@ -59,6 +63,9 @@ sudo systemctl enable --now cups.socket
 
 # Docker
 sudo systemctl enable --now docker.socket
+
+# User services
+systemctl --user enable --now ssh-agent.service
 
 ###############################################################################
 # User

@@ -1,19 +1,7 @@
 # ------------
 # Source files
 # ------------
-[ -f ~/.exports ] && . ~/.exports
 [ -f /etc/profile ] && . /etc/profile
-
-if [ -f ~/.ssh/ssh-agent ]
-then
-    . ~/.ssh/ssh-agent > /dev/null
-    if ! ps ax | grep $SSH_AGENT_PID | grep -q ssh-agent
-    then
-        eval $(ssh-agent | tee ~/.ssh/ssh-agent)
-    fi
-else
-    eval $(ssh-agent | tee ~/.ssh/ssh-agent)
-fi
 
 # -------
 # History
