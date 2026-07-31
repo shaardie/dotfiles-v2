@@ -3,6 +3,7 @@ import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [window]
 title = "Terminal"
+opacity = 0.95
 
 [scrolling]
 history = 100000

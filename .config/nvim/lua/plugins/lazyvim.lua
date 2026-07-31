@@ -5,4 +5,11 @@ return {
       colorscheme = "catppuccin-mocha",
     },
   },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
 }
