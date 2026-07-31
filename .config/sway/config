@@ -138,6 +138,9 @@ bar {
 
 # Autostart via Systemd
 exec_always systemctl --user start sway-session.target
+# Kanshi needs to reload after sway reload to re-apply the configuration after
+# sway messes it up
+exec_always kanshictl reload
 
 # special keys
 bindsym XF86AudioRaiseVolume  exec swayosd-client --output-volume raise
