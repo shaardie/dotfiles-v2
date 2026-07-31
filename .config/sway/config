@@ -1,3 +1,7 @@
+# import global config snippets to export environment variables to systemd and
+# other stuff
+include /etc/sway/config.d/*
+
 # sway config file
 set $mod Mod4
 
@@ -132,38 +136,8 @@ bar {
     swaybar_command waybar
 }
 
-### ---------------------------------------------------------------------------
-### Autostart
-### ---------------------------------------------------------------------------
-
-# Authentication / Secrets
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec /usr/bin/gnome-keyring-daemon --start --components=secrets
-
-# Output management (mode/position kommt aus kanshi)
-exec_always pkill kanshi; kanshi
-
-# Bars / Notifications / OSD
-exec swaync
-exec swayosd-server
-
-# Network / Storage tray
-exec nm-applet --indicator
-exec udiskie --tray
-
-# Clipboard history (Text + Bilder)
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
-
-# Idle management + Lock
-exec swayidle -w \
-    timeout 300 'swaylock -f' \
-    timeout 600 'swaymsg "output * power off"' \
-    resume    'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f'
-
-# Night light (osnabrück)
-exec wlsunset -l 51.96 -L 7.63
+# Autostart via Systemd
+exec_always systemctl --user start sway-session.target
 
 # special keys
 bindsym XF86AudioRaiseVolume  exec swayosd-client --output-volume raise

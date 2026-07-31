@@ -1,0 +1,11 @@
+[Unit]
+Description=wlsunset night light
+PartOf=sway-session.target
+After=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wlsunset -l 51.96 -L 7.63
+
+[Install]
+WantedBy=sway-session.target

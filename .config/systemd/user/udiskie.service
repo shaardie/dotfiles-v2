@@ -1,0 +1,11 @@
+[Unit]
+Description=udiskie automounter (tray)
+PartOf=sway-session.target
+After=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie --tray
+
+[Install]
+WantedBy=sway-session.target

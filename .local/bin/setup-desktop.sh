@@ -68,6 +68,17 @@ sudo systemctl enable --now docker.socket
 
 # User services
 systemctl --user enable --now ssh-agent.service
+systemctl --user enable --now kanshi.service
+systemctl --user enable --now nm-applet.service
+systemctl --user enable --now polkit-gnome-agent.service
+systemctl --user enable --now cliphist-image.service
+systemctl --user enable --now cliphist-text.service
+systemctl --user enable --now gnome-keyring.service
+systemctl --user enable --now swayidle.service
+systemctl --user enable --now swaync.service
+systemctl --user enable --now swayosd.service
+systemctl --user enable --now udiskie.service
+systemctl --user enable --now wlsunset.service
 
 ###############################################################################
 # User

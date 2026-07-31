@@ -1,0 +1,11 @@
+[Unit]
+Description=cliphist clipboard history (image)
+PartOf=sway-session.target
+After=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wl-paste --type image --watch cliphist store
+
+[Install]
+WantedBy=sway-session.target

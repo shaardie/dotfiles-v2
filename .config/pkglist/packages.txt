@@ -239,6 +239,7 @@ ansible                     # Configuration management
 packer                      # Machine image builder
 kubectl                     # Kubernetes CLI
 helm                        # Kubernetes package manager
+helmfile                    # Kubernetes package manager
 kustomize                   # Kubernetes manifest templating
 k9s                         # Kubernetes TUI
 minikube                    # Local Kubernetes cluster
