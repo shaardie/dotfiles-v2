@@ -1,8 +1,8 @@
 output "eDP-1" enable mode 1920x1080@60Hz position 0,0 alias $INTERNAL
 output "LG Electronics LG ULTRAGEAR 503BOEA02156" mode 2560x1440@59.951 position 0,0 alias $HOME_LEFT
 output "LG Electronics LG ULTRAGEAR 503BOVU02263" mode 2560x1440@59.951 position 2560,0 alias $HOME_RIGHT
-output "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014425" mode 1920x1080@60Hz position 0,0 alias $WORK_LEFT
-output "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014423" mode 1920x1080@60Hz position 1920,0 alias $WORK_RIGHT
+output "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014423" mode 1920x1080@60Hz position 0,0 alias $WORK_LEFT
+output "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014425" mode 1920x1080@60Hz position 1920,0 alias $WORK_RIGHT
 
 profile work-laptop {
     output $INTERNAL enable

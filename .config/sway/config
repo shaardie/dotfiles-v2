@@ -167,6 +167,8 @@ bindsym $mod+Print  exec grimshot copy output
 output '*' bg /usr/share/backgrounds/archlinux/gritty.png fill
 
 # start as floating windows
+# find out with "swaymsg -t get_tree"
 for_window [class="Pinentry-gtk"] floating enable
 for_window [app_id="nm-openconnect-auth-dialog"] floating enable
+for_window [app_id="udiskie"] floating enable
 for_window [class="zoom" title="annotate_toolbar"] move to scratchpad
