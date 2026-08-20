@@ -28,6 +28,17 @@ oder ein anderer Client wird ausgeführt — auch nicht lesend (`get`, `describe
 Manifeste werden geschrieben und höchstens offline validiert; das Anwenden und Prüfen macht
 der Nutzer. Verifikationsschritte werden als Checkliste dokumentiert, nicht ausgeführt.
 
+## Nichts unter meiner Authentifizierung
+
+Kein Zugriff auf ein fremdes System, der meine Anmeldung benutzt — weder schreibend noch lesend.
+Kein `glab`, `gh`, kein `curl` mit Token oder Session, keine MCP-Connectors. Das gilt auch dann,
+wenn das CLI installiert und angemeldet ist. Wie bei Clustern: Issues, Merge Requests,
+Kommentare, Payloads und Requests werden als Text vorbereitet, abgeschickt wird nichts — anlegen
+und verschicken mache ich.
+
+Öffentliche Websuche und das Abrufen öffentlicher Seiten sind erlaubt, solange keine
+Authentifizierung von mir im Spiel ist.
+
 ## wwukube- und cloud-services-Repos
 
 Die meisten (nicht alle) Repos unter `wwuit-sys/wwukube/` und `wwuit-sys/cloud-services/` sind
