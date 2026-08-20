@@ -378,3 +378,8 @@ xorg-xwayland               # (already listed above; core for X11 apps)
 xdotool                     # X11 automation (for XWayland windows)
 xsel                        # X11 clipboard (for XWayland apps)
 feh                         # Image viewer / X11 fallback
+
+
+# to sort
+bubblewrap  # containerize claude
+socat  # containerize claude
