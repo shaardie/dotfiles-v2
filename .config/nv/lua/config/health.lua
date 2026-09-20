@@ -52,7 +52,7 @@ function M.check()
 
   h.start("Treesitter parsers")
   local missing = {}
-  for _, lang in ipairs(require("plugins").parsers) do
+  for _, lang in ipairs(require("config.plugins").parsers) do
     if #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0 then
       table.insert(missing, lang)
     end

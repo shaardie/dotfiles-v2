@@ -10,9 +10,9 @@ Neovim 0.12.5 is required (built-in `vim.pack`, `vim.lsp.config/enable`).
 
 ```
 init.lua                 leader, loads modules in order
-lua/plugins.lua          vim.pack.add, plugin setup, treesitter parser list (M.parsers)
-lua/lsp.lua              servers, diagnostics, format on save, nvim-lint
-lua/config/options.lua
+lua/config/plugins.lua   vim.pack.add, plugin setup, treesitter parser list (M.parsers)
+lua/config/lsp.lua       servers, diagnostics, format on save, nvim-lint
+lua/config/options.lua   
 lua/config/keymaps.lua   ALL keymaps (snacks, LSP on attach, toggles)
 lua/config/autocmds.lua  yank, resize, last pos, q-close, checktime, prose, cd to dir, helm ft
 lua/config/health.lua    :checkhealth config (missing tools, servers, parsers, plugins)
