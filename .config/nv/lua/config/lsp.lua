@@ -52,7 +52,7 @@ vim.lsp.config("yamlls", {
 })
 
 -- Enable a server only if its binary is installed
-local servers = { "lua_ls", "rust_analyzer", "gopls", "basedpyright", "ruff", "yamlls" }
+local servers = { "lua_ls", "rust_analyzer", "gopls", "pyright", "ruff", "yamlls" }
 for _, name in ipairs(servers) do
   local cmd = vim.lsp.config[name].cmd
   if type(cmd) == "table" and vim.fn.executable(cmd[1]) == 1 then
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if not client then return end
-    -- ruff is used for lint/format only; leave hover to basedpyright
+    -- ruff is used for lint/format only; leave hover to pyright
     if client.name == "ruff" then
       client.server_capabilities.hoverProvider = false
     end

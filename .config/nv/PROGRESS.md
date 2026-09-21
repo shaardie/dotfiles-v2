@@ -35,16 +35,38 @@ Load order matters: options, plugins, lsp, keymaps (needs snacks + which-key), a
   filetype `helm` with buffer-local diagnostics off.
 - Docker: only `hadolint` via nvim-lint, no Docker language servers for now.
 - `<A-j>/<A-k>` line moving was removed on purpose.
+- LSP keymaps: prefer Neovim's own `gr*` defaults (`grn` rename, `gra` code action, `grx` codelens,
+  `gO` document symbols, see `:h grr`) over custom LazyVim-style ones. Only `grr`/`gri`/`grt`
+  (references/implementation/type definition) are overridden per-buffer to use Snacks' picker
+  instead of quickfix/loclist. `gd`/`gD` stay custom since Neovim has no default for them. This
+  deviates from the briefing's original "same keymaps as LazyVim" framing on purpose: built-in
+  Neovim functionality wins over reproducing LazyVim's exact scheme, to keep the config smaller.
+  (Also fixes a real bug: our old custom `gr` collided with Neovim's global `grr/grn/gra/gri/grt`
+  defaults, which share the "gr" prefix, causing an ambiguous which-key popup on `gr`.)
+- Python: `pyright` (official Arch package) instead of `basedpyright` (AUR-only), same role —
+  hover/goto/diagnostics from pyright, ruff for lint/format (hover disabled on the ruff client).
+- No Mason. All LSP/format/lint binaries come from official Arch packages where possible.
+  `helm_ls` and `hadolint` are AUR-only, so they're installed manually as GitHub release binaries
+  instead of pulling in Mason for two tools — avoids a second, parallel package manager next to
+  pacman. A dedicated tool to manage these manually installed binaries is planned for later.
 
 ## Steps
 
 Done and confirmed working: 1 (base), 2 (plugins, snacks, blink, mini.pairs), 3 (treesitter,
 LSP scaffold with lua_ls).
 
-Written, not yet confirmed by testing:
-- 4: rust-analyzer (clippy), gopls, basedpyright + ruff, format toggle.
-- 5: yamlls + SchemaStore, hadolint, Helm template filetype detection.
-- The refactor into fewer files (last change): needs one clean start and `:checkhealth config`.
+All tools installed, `:checkhealth config` fully green.
+
+Step 4, partially confirmed:
+- Rust (rust-analyzer): `grr`/`gri`/`grt`/`grn`/`gra` all confirmed working interactively.
+  (A one-off rust-analyzer crash, `-32603 TextRange -offset overflowed`, showed up during the
+  earlier `gr`/which-key keymap collision but did not reproduce afterwards with clean `grr` — was
+  very likely a side effect of the ambiguous keypresses, not a real bug.)
+- Still to test: Go (gopls) goto/hints, Python (pyright hover + ruff diagnostics), format-on-save
+  toggle (`<leader>uf`) for Rust/Go/Python, inlay hints.
+
+Step 5, not yet tested interactively: yamlls + SchemaStore, hadolint, Helm template filetype
+detection.
 
 Open:
 - 6: Helm: `towolf/vim-helm`, `helm_ls`. Check filetype detection and yamlls errors in templates.
@@ -55,15 +77,15 @@ Open:
 
 ## Setting up on another machine
 
-1. Install the tools. `:checkhealth config` lists what is missing. Known packages:
-   `git gcc ripgrep fd tree-sitter-cli lua-language-server rust-analyzer gopls ruff`
-   `yaml-language-server hadolint prettier marksman` (package names for `basedpyright`, `helm_ls`
-   are unverified; check pacman/AUR/npm).
+1. Install the tools. `:checkhealth config` lists what is missing.
+   - Official Arch packages (`pacman -S`): `git gcc ripgrep fd tree-sitter-cli lua-language-server
+     rust-analyzer gopls ruff pyright yaml-language-server marksman prettier`.
+   - No AUR, no Mason on purpose (see "Decisions taken" above): `helm_ls` and `hadolint` have no pacman
+     package. Install them as static GitHub release binaries (both are single Go binaries) into
+     something like `~/.local/bin`. A small script to track/update these manually installed
+     binaries is planned but not written yet.
 2. Copy this directory to `~/.config/nv` and start `NVIM_APPNAME=nv nvim`. `vim.pack` clones the
    plugins and the `PackChanged` hook runs `:TSUpdate` (needs the `tree-sitter` CLI).
 3. Copy `nvim-pack-lock.json` too if you want the same plugin revisions.
 4. Run `:checkhealth config` and `:checkhealth vim.lsp`.
 
-## Cleanup left to do
-
-- Remove the unused tokyonight clone: `:lua vim.pack.del({ "tokyonight.nvim" })`.

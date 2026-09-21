@@ -3,6 +3,7 @@ local M = {}
 local h = vim.health
 
 -- Entries: { binary, pacman package (optional) }
+-- helm_ls and hadolint have no pacman package (AUR-only); install as GitHub release binaries.
 local required = {
   { "git" },
   { "gcc" },
@@ -16,7 +17,7 @@ local servers = {
   { "lua-language-server", "lua-language-server" },
   { "rust-analyzer", "rust-analyzer" },
   { "gopls", "gopls" },
-  { "basedpyright-langserver" },
+  { "pyright-langserver", "pyright" },
   { "ruff", "ruff" },
   { "yaml-language-server", "yaml-language-server" },
   { "helm_ls" },

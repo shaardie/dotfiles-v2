@@ -89,7 +89,11 @@ Nur aktivieren, wenn das Binary im PATH liegt (Muster: `vim.lsp.config[name].cmd
 | Markdown | `marksman` | |
 | Lua | `lua-language-server` | für das Bearbeiten der eigenen Config (`Snacks` als Global) |
 
-LspAttach-Keymaps: `gd`, `gr`, `gI`, `gy` (über Snacks-Picker), `gD`, `<leader>ca`, `<leader>cr`, `<leader>cf`;
+LspAttach-Keymaps: Neovims eigene `gr*`-Defaults bleiben nach Möglichkeit unverändert (`grn` Rename,
+`gra` Code Action, `grx` Codelens, `gO` Document Symbols, siehe `:h grr`); nur `grr`/`gri`/`grt`
+(Referenzen/Implementation/Type Definition) zeigen stattdessen auf Snacks-Picker statt Quickfix.
+`gd`/`gD` (Definition/Declaration) sind eigene Mappings, da Neovim dafür keine Defaults mitliefert.
+`<leader>cf`;
 Inlay-Hints standardmäßig an (`<leader>uh` schaltet um). `]d`/`[d` sind in Neovim eingebaut.
 Diagnostics: `virtual_text` mit Prefix, `severity_sort`.
 
@@ -131,6 +135,9 @@ dazu `wrap` und `linebreak`. Wörterbücher lädt Neovim beim ersten Mal nach.
 - Explorer: `<leader>e`
 - Buffer/Fenster: `<S-h>/<S-l>`, `<leader>bd/bo/bb`, `<C-h/j/k/l>`, `<C-Pfeile>` Resize, `<leader>-` und `<leader>|` Splits, `<leader>wd`
 - Editieren: `<A-j>/<A-k>` Zeilen verschieben, `<`/`>` behalten Auswahl, `<C-s>` speichern, `<esc>` löscht Suchmarkierung, `<leader>qq` beenden
+- LSP: wo Neovim selbst schon ein Mapping mitbringt (`grn/gra/grx/gO`, siehe Abschnitt 7), wird das
+  übernommen statt ein eigenes LazyVim-Pendant zu bauen — Prinzip: eingebaute Neovim-Funktionalität
+  vor eigenem Code, auch wenn das vom exakten LazyVim-Schema abweicht.
 - Toggles: `<leader>uw` Wrap, `us` Spell, `ud` Diagnostics, `uh` Inlay-Hints, `uf` Format-on-save
 - Optional: `gsa/gsd/gsr` (mini.surround), `s`/`S` (flash)
 

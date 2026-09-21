@@ -86,19 +86,20 @@ map("n", "<leader>uf", function()
 end, { desc = "Toggle format on save" })
 map("n", "<leader>uC", function() p.colorschemes() end, { desc = "Colorschemes" })
 
--- LSP (buffer-local, set when a server attaches)
+-- LSP (buffer-local, set when a server attaches). Neovim ships grn/gra/grx/gO unconditionally
+-- (:h grr) for rename/code action/codelens/document symbols; we leave those as-is. gd/gD have no
+-- built-in default, and grr/gri/grt get pointed at Snacks' picker for a searchable list instead
+-- of the plain quickfix/loclist Neovim's default uses.
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("nv_lsp_keymaps", { clear = true }),
   callback = function(ev)
-    local function m(lhs, rhs, desc, mode)
-      map(mode or "n", lhs, rhs, { buffer = ev.buf, desc = desc })
+    local function m(lhs, rhs, desc)
+      map("n", lhs, rhs, { buffer = ev.buf, desc = desc })
     end
     m("gd", function() p.lsp_definitions() end, "Goto definition")
-    m("gr", function() p.lsp_references() end, "References")
-    m("gI", function() p.lsp_implementations() end, "Goto implementation")
-    m("gy", function() p.lsp_type_definitions() end, "Goto type definition")
     m("gD", vim.lsp.buf.declaration, "Goto declaration")
-    m("<leader>ca", vim.lsp.buf.code_action, "Code action", { "n", "x" })
-    m("<leader>cr", vim.lsp.buf.rename, "Rename")
+    m("grr", function() p.lsp_references() end, "References")
+    m("gri", function() p.lsp_implementations() end, "Goto implementation")
+    m("grt", function() p.lsp_type_definitions() end, "Goto type definition")
   end,
 })
