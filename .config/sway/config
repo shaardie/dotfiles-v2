@@ -122,14 +122,13 @@ bindsym $mod+r mode "resize"
 
 # catppuccin color sheme https://github.com/catppuccin/i3
 include catppuccin-mocha
-# target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+# target                 border    background text      indicator child_border
+client.focused           $lavender $lavender  $crust    $mauve    $lavender
+client.focused_inactive  $surface1 $surface0  $text     $surface1 $surface1
+client.unfocused         $surface0 $mantle    $overlay1 $surface0 $surface0
+client.urgent            $red      $red       $crust    $red      $red
+client.placeholder       $overlay0 $base      $text     $overlay0 $overlay0
 client.background        $base
-
 
 # waybar
 bar {
@@ -171,4 +170,7 @@ output '*' bg /usr/share/backgrounds/archlinux/gritty.png fill
 for_window [class="Pinentry-gtk"] floating enable
 for_window [app_id="nm-openconnect-auth-dialog"] floating enable
 for_window [app_id="udiskie"] floating enable
+for_window [app_id="pavucontrol"] floating enable, resize set 800 600
+for_window [app_id="nm-connection-editor"] floating enable
+for_window [app_id="org.gnome.FileRoller"] floating enable
 for_window [class="zoom" title="annotate_toolbar"] move to scratchpad
