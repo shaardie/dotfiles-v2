@@ -1,0 +1,37 @@
+/* Layout: one flat, full-width bar; the focused workspace is underlined. */
+
+window#waybar {
+  background: @mantle;
+  border-bottom: 1px solid @surface0;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  box-shadow: inset 0 -2px transparent;
+}
+
+#workspaces button.focused {
+  color: @lavender;
+  box-shadow: inset 0 -2px @lavender;
+}
+
+#mode {
+  color: @crust;
+  background: @peach;
+  padding: 0 10px;
+}
+
+#clock,
+#status,
+#tray,
+#custom-notification {
+  padding: 0 10px;
+}
+
+#status {
+  margin-right: 6px;
+}
+
+#custom-notification {
+  margin-right: 4px;
+}

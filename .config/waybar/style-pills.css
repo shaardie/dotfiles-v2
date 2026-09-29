@@ -1,0 +1,45 @@
+/* Layout: separate rounded pills on a transparent bar. */
+
+#workspaces,
+#mode,
+#clock,
+#status,
+#tray,
+#custom-notification {
+  background: @base;
+  border: 1px solid @surface0;
+  border-radius: 10px;
+  margin: 6px 0;
+  padding: 0 12px;
+}
+
+#workspaces {
+  margin-left: 8px;
+  padding: 0 4px;
+}
+
+#workspaces button {
+  margin: 3px 0;
+  border-radius: 8px;
+}
+
+#workspaces button.focused {
+  background: @lavender;
+  color: @crust;
+}
+
+#mode {
+  margin-left: 6px;
+  color: @crust;
+  background: @peach;
+  border-color: @peach;
+}
+
+#tray,
+#custom-notification {
+  margin-left: 6px;
+}
+
+#custom-notification {
+  margin-right: 8px;
+}

@@ -1,0 +1,32 @@
+/* Layout: one full-width bar in base color; the focused workspace is a filled button. */
+
+window#waybar > box {
+  background: @base;
+  border-bottom: 1px solid @surface0;
+  padding: 0 6px;
+}
+
+#workspaces button {
+  margin: 5px 0;
+  border-radius: 8px;
+}
+
+#workspaces button.focused {
+  background: @lavender;
+  color: @crust;
+}
+
+#mode {
+  margin: 5px 0 5px 6px;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: @crust;
+  background: @peach;
+}
+
+#clock,
+#status,
+#tray,
+#custom-notification {
+  padding: 0 10px;
+}
