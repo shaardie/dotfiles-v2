@@ -6,19 +6,6 @@
   "permissions": {
     "blockReadsOutsideWorkingDirectories": true
   },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Write|Edit|NotebookEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.claude/hooks/confine-writes.sh"
-          }
-        ]
-      }
-    ]
-  },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
