@@ -1,0 +1,27 @@
+{
+  "theme": "dark",
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  },
+  "permissions": {
+    "blockReadsOutsideWorkingDirectories": true
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/confine-writes.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false
+  }
+}
