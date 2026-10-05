@@ -79,6 +79,7 @@ systemctl --user enable --now swaync.service
 systemctl --user enable --now swayosd.service
 systemctl --user enable --now udiskie.service
 systemctl --user enable --now wlsunset.service
+systemctl --user enable --now syncthing.service
 
 ###############################################################################
 # User

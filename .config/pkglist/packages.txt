@@ -356,6 +356,7 @@ gvfs-goa                    # Online Accounts integration
 nfs-utils                   # NFS client/server tools
 baobab                      # Disk usage analyzer (GUI)
 gnome-disk-utility          # Disk management GUI
+syncthing
 
 
 # ##############################################################################
