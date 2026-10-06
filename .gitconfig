@@ -2,9 +2,11 @@
 	email = sven@haardiek.de
 	name = Sven Haardiek
 [pull]
-	rebase = false
+	ff = only
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg
 [diff "sops"]
 	textconv = sops-diff
 	binary = false
@@ -12,8 +14,15 @@
 	driver = sops-merge %A %O %B %P
 [init]
 	defaultBranch = main
+[credential]
+	helper = store
+[core]
+	editor = nvim
 [push]
   autoSetupRemote
 [hook "claude-co-authored-post-commit"]
 	event = commit-msg
-	command = /home/sven/.local/bin/claude-commit-msg-git-hook
+	command = ~/.local/bin/claude-commit-msg-git-hook
+
+[include]
+  path = ~/.gitconfig.local
