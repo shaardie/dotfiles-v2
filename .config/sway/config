@@ -165,6 +165,26 @@ bindsym $mod+Print  exec grimshot copy output
 # output
 output '*' bg /usr/share/backgrounds/archlinux/gritty.png fill
 
+set $home_left  "LG Electronics LG ULTRAGEAR 503BOEA02156"
+set $home_right "LG Electronics LG ULTRAGEAR 503BOVU02263"
+set $work_left  "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014423"
+set $work_right "Fujitsu Siemens Computers GmbH B27-9 TS FHD YVDW014425"
+set $internal   eDP-1
+
+# Left: 1-5
+workspace 1 output $home_left $work_left $internal
+workspace 2 output $home_left $work_left $internal
+workspace 3 output $home_left $work_left $internal
+workspace 4 output $home_left $work_left $internal
+workspace 5 output $home_left $work_left $internal
+
+# Right: 6-10
+workspace 6  output $home_right $work_right $internal
+workspace 7  output $home_right $work_right $internal
+workspace 8  output $home_right $work_right $internal
+workspace 9  output $home_right $work_right $internal
+workspace 10 output $home_right $work_right $internal
+
 # start as floating windows
 # find out with "swaymsg -t get_tree"
 for_window [class="Pinentry-gtk"] floating enable
