@@ -384,3 +384,4 @@ feh                         # Image viewer / X11 fallback
 # to sort
 bubblewrap  # containerize claude
 socat  # containerize claude
+handlr-regex  # to set defaults
