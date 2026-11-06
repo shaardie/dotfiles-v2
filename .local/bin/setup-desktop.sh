@@ -81,6 +81,9 @@ systemctl --user enable --now udiskie.service
 systemctl --user enable --now wlsunset.service
 systemctl --user enable --now syncthing.service
 
+# Disable dbus autostart of nextcloud
+systemctl --user mask com.nextcloud.desktopclient.nextcloud.service
+
 ###############################################################################
 # User
 ###############################################################################

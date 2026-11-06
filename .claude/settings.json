@@ -1,14 +1,24 @@
 {
-  "theme": "dark",
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
-  },
   "permissions": {
     "blockReadsOutsideWorkingDirectories": true
+  },
+  "model": "sonnet",
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false
-  }
+  },
+  "feedbackDrafts": "notify",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "autoCompactWindow": 400000
+    },
+    "claude-sonnet-5-5": {
+      "autoCompactWindow": 400000
+    }
+  },
+  "theme": "dark"
 }
