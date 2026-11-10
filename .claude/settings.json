@@ -8,6 +8,9 @@
   },
   "sandbox": {
     "enabled": true,
+    "filesystem": {
+      "allowRead": ["~/.local/bin/claude-commit-msg-git-hook"]
+    },
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false
   },
