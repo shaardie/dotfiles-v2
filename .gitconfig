@@ -24,5 +24,9 @@
 	event = commit-msg
 	command = ~/.local/bin/claude-commit-msg-git-hook
 
+# delta as diff viewer
+[core]
+    pager = delta --color-only
+
 [include]
   path = ~/.gitconfig.local

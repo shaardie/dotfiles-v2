@@ -1,0 +1,5 @@
+git:
+  autoFetch: false  # to not annoy my sk keys
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never --color-only

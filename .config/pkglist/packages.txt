@@ -385,3 +385,4 @@ feh                         # Image viewer / X11 fallback
 bubblewrap  # containerize claude
 socat  # containerize claude
 handlr-regex  # to set defaults
+git-delta  # better git diff viewer with syntax hightlighting
